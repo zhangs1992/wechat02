@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>上传首页</title>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="flex-sm-row" >
+        <h1>创建群聊</h1>
+        <form action="upload" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+
+                <div class="form-group" >
+
+                    <input type="file" class="form-control-file" name="userFile">
+                </div>
+                <div class="form-group">
+                    <label>群聊名称</label>
+                    <input type="text" class="col-xs-4"  placeholder="群聊名称" name="chatName">
+                    <small class="form-text text-muted">请不要多次重名(建议日期加导游加名称)</small>
+                </div>
+                <button type="submit" class="btn btn-primary">创建群聊</button>
+            </div>
+        </form>
+        <form action="/download" method="get">
+            <!--<select name="room">-->
+                <!--<option th:each="room:${roomlist}" th:value="${room}">-->
+                    <!--<span th:text="${room}"></span>-->
+                <!--</option>-->
+            <!--</select>-->
+            <input type="text" name="room" />
+            <input type="submit" value="下载">
+        </form>
+    </div>
+    <div class="flex-sm-row">
+        <table border="1">
+            <tr>
+                <td>未加入群聊人员</td>
+                <td>类别</td>
+                <td>证件号</td>
+                <td>性别</td>
+                <td>年龄</td>
+                <td>票号</td>
+                <td>微信ID</td>
+                <td>联系方式</td>
+                <td>子女联系方式</td>
+                <td>住所</td>
+                <td>机位要求</td>
+                <td>办事处</td>
+                <td>旅客地域</td>
+                <td>旅客来源</td>
+                <td>所属群</td>
+                <!--<td>饮食要求</td>-->
+                <!--<td>餐食可选</td>-->
+            </tr>
+            <tr th:each="mem,memStat:${memList}">
+                <td th:text="${mem==null ? '1' : mem.name}">1</td>
+                <td th:text="${mem==null ? '2' : mem.category}">2</td>
+                <td th:text="${mem==null ? '3' : mem.idCard}">3</td>
+                <td th:text="${mem==null ? '4' : mem.sex}">4</td>
+                <td th:text="${mem==null ? '5' : mem.age}">5</td>
+                <td th:text="${mem==null ? '6' : mem.ticketNum}">6</td>
+                <td th:text="${mem==null ? '7' : mem.weChatId}">7</td>
+                <td th:text="${mem==null ? '8' : mem.contact}">8</td>
+                <td th:text="${mem==null ? '9' : mem.childContact}">9</td>
+                <td th:text="${mem==null ? '10' : mem.residence}">10</td>
+                <td th:text="${mem==null ? '11' : mem.seatRequirements}">11</td>
+                <td th:text="${mem==null ? '12' : mem.office}">12</td>
+                <td th:text="${mem==null ? '13' : mem.passengerRegion}">13</td>
+                <td th:text="${mem==null ? '14' : mem.passengerSource}">14</td>
+                <td th:text="${mem==null ? '15' : mem.chatroom}">15</td>
+                <!--<td th:text="${mem==null ? '' : mem.foodRequirements}"></td>-->
+                <!--<td th:text="${mem==null ? '' : mem.mealOptionalContent}"></td>-->
+            </tr>
+        </table>
+
+    </div>
+
+</div>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
